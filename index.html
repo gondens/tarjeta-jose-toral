@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>José María Toral B. - Gondens</title>
+<meta name="description" content="Tarjeta de José María Toral B., Vicepresidente comercial - Capítulo Centroamérica y México - Gondens International / Promtur Panama.">
+<meta property="og:title" content="José María Toral B. - Vicepresidente comercial">
+<meta property="og:description" content="Gondens International - Promtur Panama">
+<meta property="og:image" content="https://gondens.github.io/tarjeta-jose-toral/image.jpg">
+<style>
+:root{--navy:#14356B;--gold:#C8952A;--bg:#eef1f6;--card:#fff;--ink:#16233b;--line:#d8dee9;--wa:#25d366}
+@media(prefers-color-scheme:dark){:root{--navy:#4e7bd1;--gold:#e0ac49;--bg:#0b1424;--card:#16233b;--ink:#eaf0fa;--line:#25344f}}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink);padding:22px 16px 32px}
+.w{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:18px;align-items:center}
+.langs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.langs button{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.03em;cursor:pointer}
+.langs button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+img{width:100%;border-radius:16px;box-shadow:0 20px 45px -25px rgba(20,53,107,.5);border:1px solid var(--line)}
+h1{margin:0 0 4px;font-size:26px;text-align:center}
+p.r{margin:0;text-align:center;color:var(--gold);font-weight:600}
+.btns{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+a.b,button.b{display:block;text-align:center;padding:14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;cursor:pointer}
+a.save,button.save{grid-column:1/-1;background:var(--navy);color:#fff;border:none}
+a.wa{border-color:var(--wa)}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="langs" id="langs">
+<button data-lang="es" type="button">ES</button>
+<button data-lang="en" type="button">EN</button>
+<button data-lang="pt" type="button">PT</button>
+<button data-lang="fr" type="button">FR</button>
+<button data-lang="de" type="button">DE</button>
+<button data-lang="it" type="button">IT</button>
+</div>
+<img src="image.jpg" alt="Tarjeta de José María Toral B., Vicepresidente comercial - Capítulo Centroamérica y México - Gondens International / Promtur Panama">
+<div><h1>José María Toral B.</h1><p class="r">Vicepresidente comercial, Capítulo Centroamérica y México - Gondens International / Promtur Panama</p></div>
+<div class="btns">
+<button class="b save" id="s" type="button" data-i18n="save">Guardar contacto</button>
+<a class="b" href="tel:+50766715086" data-i18n="call">Llamar</a>
+<a class="b wa" href="https://wa.me/50766715086" target="_blank" rel="noopener">WhatsApp</a>
+<a class="b" href="mailto:jtoral@gondens.com" data-i18n="email">Correo</a>
+<a class="b" href="https://maps.google.com/?q=Plaza+2000,+Calle+50,+Panama" target="_blank" rel="noopener" data-i18n="office">Oficina</a>
+<a class="b" href="https://www.promturpanama.com" target="_blank" rel="noopener">promturpanama.com</a>
+<a class="b" href="https://www.visitpanama.com" target="_blank" rel="noopener">visitpanama.com</a>
+<a class="b" href="https://www.gondens.com" target="_blank" rel="noopener">gondens.com</a>
+</div>
+</div>
+<script>
+var T={
+save:{es:"Guardar contacto",en:"Save contact",pt:"Salvar contato",fr:"Enregistrer le contact",de:"Kontakt speichern",it:"Salva contatto"},
+call:{es:"Llamar",en:"Call",pt:"Ligar",fr:"Appeler",de:"Anrufen",it:"Chiama"},
+email:{es:"Correo",en:"Email",pt:"E-mail",fr:"E-mail",de:"E-Mail",it:"Email"},
+office:{es:"Oficina",en:"Office",pt:"Escritório",fr:"Bureau",de:"Büro",it:"Ufficio"}
+};
+function setLang(l){
+document.querySelectorAll("[data-i18n]").forEach(function(e){var k=e.getAttribute("data-i18n");if(T[k]&&T[k][l])e.textContent=T[k][l];});
+document.documentElement.lang=l;
+document.querySelectorAll("#langs button").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-lang")===l);});
+try{localStorage.setItem("lang",l);}catch(e){}
+}
+document.querySelectorAll("#langs button").forEach(function(b){b.onclick=function(){setLang(b.getAttribute("data-lang"));};});
+var saved=null;try{saved=localStorage.getItem("lang");}catch(e){}
+var nav=(navigator.language||"es").slice(0,2);
+var init=saved||(["es","en","pt","fr","de","it"].indexOf(nav)>=0?nav:"es");
+setLang(init);
+var v=["BEGIN:VCARD","VERSION:3.0","N:Toral;Jose Maria;;;","FN:Jose Maria Toral B.","ORG:Gondens International;Promtur Panama","TITLE:Vicepresidente comercial - Capitulo Centroamerica y Mexico","TEL;TYPE=CELL:+50766715086","EMAIL:jtoral@gondens.com","ADR;TYPE=WORK:;;Plaza 2000 Piso 14 Calle 50;Panama;;;Panama","URL:https://www.promturpanama.com","URL:https://www.visitpanama.com","URL:https://www.gondens.com","END:VCARD"].join("\r\n");
+document.getElementById("s").onclick=function(){var b=new Blob([v],{type:"text/vcard"});var u=URL.createObjectURL(b);var a=document.createElement("a");a.href=u;a.download="Jose_Maria_Toral.vcf";document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(u)},1500)};
+</script>
+</body>
+</html>
